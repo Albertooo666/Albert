@@ -236,3 +236,36 @@ ggplot(data = SLS_df,
   geom_point() +
   labs(title = "Points Per Game vs Points Scored", x = "Games Played", y = "Points")
 # For this graph we can see that top scores tends have played around 1300 to 1600 games, and there is one player played over 1600 games but the points he scored was low.
+
+# Fit a line with geom_smooth, make it straight with method = "lm"
+ggplot(data = SLS_df,
+       aes(MP, PPG)) + 
+  geom_point()+
+  geom_smooth(method='lm', se = F)+
+  labs(title = "Minutes per Game against Points per Game",
+       xlab = "MPG")
+
+ggplot(data = SLS_df[-50,],
+       aes(x = GP, y = PPG)) +
+  geom_point() +
+  labs(title = "Points Per Game vs Games Played", x = "Games Played", y = "Points Per Game")
+
+ggplot(data = SLS_df[-50,],
+       aes(x = GP, y = PPG)) +
+  geom_point() +
+  geom_smooth()+
+  labs(title = "Points Per Game vs Games Played", x = "Games Played", y = "Points Per Game")
+
+ggplot(data = SLS_df, 
+       aes(x = MP, y = PPG)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F)+
+  labs(title = "Minutes Per Game vs. Points Per Game", x = "Minutes Per Game", y = "Points Per Game")
+
+ggplot(data = SLS_df, 
+       aes(x = MP, y = Points)) +
+  geom_smooth() +
+  geom_point() +
+  labs(title = "Points vs MP", x = "MP", y = "Points")
+
+
